@@ -1,0 +1,50 @@
+q jQuery
+
+'form document.querySelector. ' #textchat-wrapper .form 
+'input document.querySelector. ' #textchat-wrapper .text
+'messages document.querySelector. ' #textchat-wrapper .messages
+
+form q. ' #textchat-wrapper .form 
+input q. ' #textchat-wrapper .text
+messages q. ' #textchat-wrapper .messages
+
+
+make * what
+  document.createElement. what
+
+form.submit. * e
+  e.preventDefault.
+  message input.val.
+  input.val. empty
+  if.
+    > message
+    > on-client-message. message
+
+fade-el * el
+  el.css. backgroundColor' yellow'
+  el.animate.
+    #
+      background-color white'
+    2000
+
+  
+ui #
+  add-message * new-message 
+    say. ' add message
+    message-el q. ' <div></div>
+    say. ' add message2
+    say. ' MESSAGE: $new-message
+    say. message-el
+    message-el.html. ' <div style="text-align: left;" class="message client"> <span class="client-name" style="color: blue">you:</span> $new-message </div>
+    say. ' add message3
+    messages.append. message-el
+    fade-el. message-el
+
+    say. ' add message4
+  add-message-from-server * new-message
+    say. ' add message from server
+    message-el q. ' <div></div>
+    message-el.html. ' <div style="text-align: left;" class="message server"> <span class="server-name" style="color: red">Kyle:</span> $new-message </div>
+    messages.append. message-el
+    fade-el. message-el
+

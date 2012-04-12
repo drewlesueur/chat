@@ -1,0 +1,13 @@
+socket io.connect. 'http://drewl.us:8049
+
+socket.emit. test' wowser' * err data
+  say. data
+
+socket.on. text' * text
+  ui.add-message-from-server. text
+
+on-client-message * message
+  say. ' got a message
+  socket.emit. 'message message * err new-message
+    say. ' sent a message and got back $new-message
+    ui.add-message. message

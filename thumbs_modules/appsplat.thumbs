@@ -1,0 +1,13 @@
+appsplat * port
+  express require. express'
+  socket-io require. socket.io'
+  app express.createServer.
+  app.configure. *
+    app.use. express.bodyParser.
+    app.use. express.methodOverride.
+
+  io socket-io.listen. app
+  app.listen. port
+  #
+    app app
+    io io

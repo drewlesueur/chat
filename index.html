@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale = 1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+     * {
+       font-family: arial;
+     }
+     .messages {font-size: 14pt !important; text-align: left; margin-top:20px;  }
+     
+     .server, .client {padding: 5px; border-bottom: 1px solid #e0e0e0;}
+     
+     table, td {border: 1px solid #e0e0e0; text-align: center;}
+     
+     input {font-size: 14pt; margin-top: 10px;}
+
+table {border-collapse:collapse;}
+     
+    </style>
+  </head>
+<body>
+  <script src="http://drewl.us:8049/socket.io/socket.io.js"></script>
+  <script src="http://mobilemin.golivechat.com/thumbs.js"></script> 
+  <table width=100%>
+  <tr>
+    <td style="width: 250px;" valign="top">
+  
+  <div id="textchat-wrapper">
+    <div class="messages">
+      <div class="initial" style="border-bottom: 1px solid #e0e0e0; padding: 5px;"><font color=red>Kyle:</font> Hello! How can I help you? 160 Characters max per message.</div>
+    </div>
+    <form class="form">
+      <input type="text" class="text"/>
+      <input type="submit" value="Send">
+    </form>
+  </div>
+  </td>
+  <td>
+    <iframe width="100%" style="border: none; height:2000px;"src="http://mobilemin.com"></iframe>
+  </td>
+  </tr>
+  </table>
+  <script src="http://mobilemin.golivechat.com/jquery-1.7.2.min.js"></script>
+  <script src="https://raw.github.com/jquery/jquery-color/master/jquery.color.js"></script>
+  <script type="text/thumbs" src="http://mobilemin.golivechat.com/client.thumbs"></script>
+  <script type="text/thumbs" src="http://mobilemin.golivechat.com/client-ui.thumbs"></script>
+  <script>
+    $(".initial").css("backgroundColor", "yellow")
+    $(".initial").animate({"background-color": "white"}, 2000)
+  </script>
+</body>
+</html>

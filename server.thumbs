@@ -1,0 +1,40 @@
+thumbs.runFile. ' ./config.thumbs
+thumbs.runFile. ' ./thumbs_modules/appsplat.thumbs
+thumbs.runFile. ' ./thumbs_modules/sendtext.thumbs
+
+port 8049
+info appsplat. port
+app info.app
+io info.io
+
+say. ' running server on port $port
+
+'
+  sendtext. config.number 4808405406' '
+    hello world from text chat
+
+to 4803813855'
+' to 4808405406'
+
+app.get. /' * req res
+  res.send. ' yo world
+
+app.post. /sms' * req res
+  say. ' got a message!
+  text req.body 
+  message text. 'Body
+  io.sockets.emit. text' message
+   
+
+on-socket-connect * socket
+  say. ' some one connected
+  socket.on. 'test * data cb
+    cb. null ' you said $data
+
+  socket.on. message' * message cb
+    say. ' a message was sent $message
+    sendtext. config.number to message
+    cb. null message
+
+
+io.sockets.on. connection' on-socket-connect

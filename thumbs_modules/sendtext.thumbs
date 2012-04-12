@@ -1,0 +1,17 @@
+sendtext do. * 
+  sid config.sid
+  authToken config.authToken
+  
+  twilioClient js. '
+    var sid = Thumbs.get("sid")
+    var authToken = Thumbs.get("authToken")
+    var RestClient = require('twilio').RestClient;
+    twilioClient = new RestClient(sid, authToken)
+  
+  * from to message
+    say. ' going to send a text 
+      from $from
+      to $to
+      message $message
+    twilioClient.sendSms. from to message
+
